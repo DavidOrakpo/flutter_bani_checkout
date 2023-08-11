@@ -15,7 +15,6 @@ class WebViewTestPage extends StatefulWidget {
 class _WebViewTestPageState extends State<WebViewTestPage> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
     return Scaffold(
       backgroundColor: Colors.green,
       body: Center(

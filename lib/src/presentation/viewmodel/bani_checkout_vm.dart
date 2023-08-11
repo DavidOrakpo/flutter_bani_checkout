@@ -6,8 +6,6 @@ import 'package:flutter_bani_checkout/flutter_bani_checkout.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import '../../core/event_response.dart';
-
 final baniCheckoutVM = ChangeNotifierProvider((ref) => BaniCheckoutViewModel());
 
 class BaniCheckoutViewModel with ChangeNotifier {
@@ -138,13 +136,17 @@ class BaniCheckoutViewModel with ChangeNotifier {
         default:
         // code block
       }
-    } catch (e) {}
+    } catch (e) {
+      log(e.toString());
+    }
   }
 
   void onMessageReceieved(JavaScriptMessage data) {
     try {
       handleResponse(data.message);
-    } catch (e) {}
+    } catch (e) {
+      log(e.toString());
+    }
   }
 
   final message = {

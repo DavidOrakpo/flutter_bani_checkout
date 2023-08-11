@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bani_checkout/flutter_bani_checkout.dart';
-import 'package:flutter_bani_checkout/src/core/event_response.dart';
 import 'package:flutter_bani_checkout/src/presentation/viewmodel/bani_checkout_vm.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:webview_flutter/webview_flutter.dart';
