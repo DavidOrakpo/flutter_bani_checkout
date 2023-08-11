@@ -1,8 +1,7 @@
 name: flutter_bani_checkout
 description: A new Flutter package project.
 version: 0.0.1
-# TODO: Change the home page to github repository or bitbucket
-homepage: "www.google.com"
+homepage: "https://github.com/DavidOrakpo/flutter_bani_checkout"
 
 environment:
   sdk: '>=3.0.5 <4.0.0'

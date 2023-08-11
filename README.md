@@ -10,30 +10,104 @@ For general information about developing packages, see the Dart guide for
 and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
+# Flutter Bani Checkout
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Integrate Bani Checkout Seamlessly into your Flutter Applications using this package!
+
+## Installation
+
+Run this in your workspace terminal
+```
+flutter pub add flutter_bani_checkout
+```
+Import the package in your application
+```
+import 'package:flutter_bani_checkout/flutter_bani_checkout.dart';
+```
+
+## Android Requirements
+The minium sdk version should be set to 19 in the ```android/app/build.gradle```.
+
+```
+android {
+    defaultConfig {
+        minSdkVersion 19
+    }
+}
+```
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Make use of either ```BaniShopperCheckout``` Widget in a stand alone page, or ```BaniShopper.checkoutModalSheet``` bottom sheet.
 
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
+### BaniShopperCheckout 
+This Widget takes a custom class, ```BaniObject``` as a required property.
 ```dart
-const like = 'sample';
+  final String text; // Text to be displayed to user
+  final String amount; // Amount to be purchased
+  final String phoneNumber; // Phone number of user in ITU standard Eg: +234 xxx xxxx xxxx
+  final String merchantKey; //Merchant Key
+  final String ref; // Transaction Reference. Should be a unique String
+  final String email; //User Email
+  final String firstName; // User First name
+  final String lastName; // Users Last Name
+  final Map<String, dynamic> metaData; // Metea Data
+```
+Optional Functions listed below can be given to be notified when an ```Event Response``` is receieved from the Widget.
+
+- onClose: This function is called whenever the Widget or Modal is closed or dismissed.
+- onSuccess: This function is called whenever a successful transaction has been carried out.
+- onCustomerExists: This function is called on confirmation of a valid Customer.
+- onCheckOutClose: This function is called after a successful payment has been receieved and widget closed.
+
+The ```EventResponse``` class returned, contains the transaction reference and customer Ref
+
+#### Example
+```dart
+  BaniShopperCheckout(
+        baniObject: BaniObject(
+          text: "Pay with Bani",
+          amount: "200",
+          phoneNumber: "+23408039485758",
+          merchantKey: "pub_test_KB9A23HSYR327H5DKW45Y",
+          ref: "ref-${Random.secure().nextInt(900000) + 100000}",
+          email: "usercustomer@gmail.com",
+          firstName: "John",
+          lastName: "Doe",
+          metaData: {
+            "order_ref": "fake_0rderre6",
+          },
+        ),
+        onSuccess: (eventResponse){
+            dev.log("Success!");
+        },
+        onClose: (eventResponse) {
+          dev.log(event.toString());
+          dev.log("Closed!");
+        },
+      ),
 ```
 
-## Additional information
+```dart
+await BaniShopper.checkoutModalSheet(
+              context: context,
+              baniObject: BaniObject(
+                text: "Pay with Bani",
+                amount: "200",
+                phoneNumber: "+23408038475839",
+                merchantKey: "pub_test_KB9A23HSYR327H5DKW45Y",
+                ref: "ref-${Random.secure().nextInt(900000) + 100000}",
+                email: "usercustomer@gmail.com",
+                firstName: "John",
+                lastName: "Doe",
+                metaData: {
+                  "order_ref": "fake_0rderre6",
+                },
+              ),
+              // onClose: onClose,
+              // onSuccess: onSuccess,
+              // onCustomerExists: onCustomerExists,
+            )
+```
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+Check out the example package for a working demo.
