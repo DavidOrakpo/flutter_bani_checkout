@@ -24,11 +24,18 @@ Import the package in your application
 ```
 import 'package:flutter_bani_checkout/flutter_bani_checkout.dart';
 ```
-
+This package works using Riverpod. So we wrap the MyApp method in main with ProviderScope as shown below
+```dart
+void main() {
+  runApp(const ProviderScope(
+    child: MyApp(),
+  ));
+}
+```
 ## Android Requirements
 The minium sdk version should be set to 19 in the ```android/app/build.gradle```.
 
-```
+```xml
 android {
     defaultConfig {
         minSdkVersion 19

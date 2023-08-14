@@ -1,6 +1,6 @@
 name: flutter_bani_checkout
-description: Make Payments Seamless with Bani.
-version: 0.0.1
+description: Make Payments Seamless with Bani using either BaniShopperCheckout widget, or BaniShopper.checkoutModalSheet bottom sheet.
+version: 0.0.1+1
 homepage: "https://github.com/DavidOrakpo/flutter_bani_checkout"
 
 environment:
