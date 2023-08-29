@@ -1,3 +1,7 @@
+## 0.0.3
+- Fixed bug in meta data object
+- Bani Object text, ref and meta data are no longer set as required
+
 ## 0.0.2
 Changes made to README and License
 

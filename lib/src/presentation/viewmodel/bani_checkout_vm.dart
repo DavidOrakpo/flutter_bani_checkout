@@ -153,16 +153,18 @@ class BaniCheckoutViewModel with ChangeNotifier {
     'message': 'yourMessage',
     'eventMessage': 'yourEventMessage'
   };
-  String injectedJS() => '''
+  String injectedJS() {
+    var t = jsonEncode(baniObjectReady);
+    return '''
       window.postMessage(${jsonEncode(baniObjectReady)}, "*");
-
+  
      // Create our shared stylesheet:
     //  var style = document.createElement("style");
     //   // Add EventListener for onMessage Event
       window.addEventListener("message", (event) => {
         sendMessage(event)
       });
-
+  
       
       // Send callback to dart JSMessageClient
       function sendMessage(event) {
@@ -195,12 +197,13 @@ class BaniCheckoutViewModel with ChangeNotifier {
           //     $jsClientName.postMessage(JSON.stringify(message));
           // }
     } 
-
+  
       // // Send raw callback to dart JSMessageClient
       // function sendMessageRaw(event) {
       //     if (window.$jsClientName && window.$jsClientName.postMessage) {
       //         $jsClientName.postMessage(message);
       //     }
       // } 
-''';
+  ''';
+  }
 }

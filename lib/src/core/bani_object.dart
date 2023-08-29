@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
 class BaniObject {
-  final String text;
+  final String? text;
   final String amount;
   final String phoneNumber;
   final String merchantKey;
@@ -12,17 +12,17 @@ class BaniObject {
   final String email;
   final String firstName;
   final String lastName;
-  final Map<String, dynamic> metaData;
+  final Map<String, dynamic>? metaData;
   BaniObject({
-    required this.text,
+    this.text,
     required this.amount,
     required this.phoneNumber,
     required this.merchantKey,
-    required this.ref,
+    this.ref = "",
     required this.email,
     required this.firstName,
     required this.lastName,
-    required this.metaData,
+    this.metaData,
   });
 
   BaniObject copyWith({
@@ -59,7 +59,7 @@ class BaniObject {
       'email': email,
       'firstName': firstName,
       'lastName': lastName,
-      'metaData': metaData,
+      'metadata': metaData,
     };
   }
 
@@ -74,7 +74,7 @@ class BaniObject {
         firstName: map['firstName'] as String,
         lastName: map['lastName'] as String,
         metaData: Map<String, dynamic>.from(
-          (map['metaData'] as Map<String, dynamic>),
+          (map['metadata'] as Map<String, dynamic>),
         ));
   }
 
@@ -85,7 +85,7 @@ class BaniObject {
 
   @override
   String toString() {
-    return 'BaniObject(text: $text, amount: $amount, phoneNumber: $phoneNumber, merchantKey: $merchantKey, ref: $ref, email: $email, firstName: $firstName, lastName: $lastName, metaData: $metaData)';
+    return 'BaniObject(text: $text, amount: $amount, phoneNumber: $phoneNumber, merchantKey: $merchantKey, ref: $ref, email: $email, firstName: $firstName, lastName: $lastName, metadata: $metaData)';
   }
 
   @override

@@ -16,7 +16,7 @@ class _WebViewTestPageState extends State<WebViewTestPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.purple.shade300,
       body: Center(
         child: ElevatedButton(
           onPressed: () async {
@@ -26,15 +26,18 @@ class _WebViewTestPageState extends State<WebViewTestPage> {
                 text: "Pay with Bani",
                 amount: "200",
                 phoneNumber: "+2347037142576",
-                merchantKey: "pub_test_KB9A23HSYR327H5DKW45Y",
+                merchantKey: "pub_test_H9BH5C31T65T5QFAG2MSX",
                 ref: "ref-${Random.secure().nextInt(900000) + 100000}",
-                email: "danielorakpo@gmail.com",
-                firstName: "Daniel",
-                lastName: "Orakpo",
+                email: "testemail@gmail.com",
+                firstName: "Test",
+                lastName: "User",
                 metaData: {
-                  "order_ref": "fake_0rderre6",
+                  "order_confirmation": "test MetaData",
                 },
               ),
+              onClose: (p0) {
+                dev.log("Closed");
+              },
               // onClose: onClose,
               // onSuccess: onSuccess,
               // onCustomerExists: onCustomerExists,
