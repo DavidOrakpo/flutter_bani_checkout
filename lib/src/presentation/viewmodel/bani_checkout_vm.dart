@@ -154,7 +154,6 @@ class BaniCheckoutViewModel with ChangeNotifier {
     'eventMessage': 'yourEventMessage'
   };
   String injectedJS() {
-    var t = jsonEncode(baniObjectReady);
     return '''
       window.postMessage(${jsonEncode(baniObjectReady)}, "*");
   

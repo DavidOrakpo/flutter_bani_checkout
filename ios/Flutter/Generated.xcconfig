@@ -1,11 +1,11 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=/Applications/flutter
-FLUTTER_APPLICATION_PATH=/Users/davidorakpo/Documents/FlutterProjects/BaniFlutterPackage/flutter_bani_checkout
+FLUTTER_ROOT=/Users/davidorakpo/fvm/versions/3.13.7
+FLUTTER_APPLICATION_PATH=/Users/davidorakpo/Documents/FlutterProjects/Bani/flutter_bani_checkout
 COCOAPODS_PARALLEL_CODE_SIGN=true
 FLUTTER_TARGET=lib/main.dart
 FLUTTER_BUILD_DIR=build
-FLUTTER_BUILD_NAME=0.0.1
-FLUTTER_BUILD_NUMBER=0.0.1
+FLUTTER_BUILD_NAME=0.0.3
+FLUTTER_BUILD_NUMBER=0.0.3
 EXCLUDED_ARCHS[sdk=iphonesimulator*]=i386
 EXCLUDED_ARCHS[sdk=iphoneos*]=armv7
 DART_OBFUSCATION=false

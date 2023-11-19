@@ -116,5 +116,63 @@ await BaniShopper.checkoutModalSheet(
               // onCustomerExists: onCustomerExists,
             )
 ```
-
 Check out the example package for a working demo.
+
+# Introducing Bani Shopper Integration
+
+Integrate Bani Shopper payments into your application in three easy steps!
+
+## Step One
+The first step requires collating the data you intend to send to Bani Shopper. The following variables below are data you can pass, with **collectorRef** being the only required variable:
+- The collector ref (formally known as the merchant tribe-ref)
+- The amount.
+- The Transaction Reference
+- The Branch ID
+- Custom Data
+
+
+```dart
+String collectorRef = "BN-e78b38qwrt4bebz514ya1dzpz9";
+String amount = "5000";
+String transactionReference = "dsfWDFDFddfREEGDfREw";
+String branchID = "21";
+```
+
+## Step Two
+The second step involves placing the variables, into the payInBaniShopper function. The **BaniShopper.payInBaniShopper** function, handles the heavy lifting of constructing the string and launching BaniShopper with all the variables you created in Step One:
+
+
+```dart
+  Future<void> payInBaniShopper({
+    required String? collectorRef,
+    String? amount,
+    String? transactionReference,
+    String? branchID,
+    Map<String, dynamic>? customData,
+  })
+```
+
+## Step Three
+The final step is the easiest! We call the **payInBaniShopper** function! This is an asynchronous call so it is important to await its call.:
+```dart
+ElevatedButton(
+	onPressed: () async {
+	await payInBaniShopper(
+            collectorRef: collectorRef,
+            amount: amount,
+            branchID: branchID,        
+            transactionReference: transactionReference,
+            customData: {
+            "is_internal": isInternal,
+            "order_id": orderID,
+        });
+},
+	child:  const  Text("Launch Bani Shopper"),
+),
+```
+
+The above code creates an Elevated Button, launches the url link in the web browser in it's onPressed callback. If the user has **BaniShopper** installed, it will open the app and prompt them to sign in. If the user doesn't have the app installed, they will be redirected to a website to complete the purchase!
+Once redirected, they will confirm the purchase, provide authorization, and will be redirected back to the source application!
+
+
+

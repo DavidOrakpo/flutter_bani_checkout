@@ -1,3 +1,7 @@
+## 0.04
+- Added bankTransfer boolean to Bani Object.
+- Added payInBaniShopper functionality. Check README for more details.
+
 ## 0.0.3
 - Fixed bug in meta data object
 - Bani Object text, ref and meta data are no longer set as required

@@ -11,6 +11,7 @@ class BaniObject {
   final String ref;
   final String email;
   final String firstName;
+  final bool? bankTransfer;
   final String lastName;
   final Map<String, dynamic>? metaData;
   BaniObject({
@@ -19,6 +20,7 @@ class BaniObject {
     required this.phoneNumber,
     required this.merchantKey,
     this.ref = "",
+    this.bankTransfer,
     required this.email,
     required this.firstName,
     required this.lastName,
@@ -30,6 +32,7 @@ class BaniObject {
     String? amount,
     String? phoneNumber,
     String? merchantKey,
+    bool? bankTransfer,
     String? ref,
     String? email,
     String? firstName,
@@ -43,6 +46,7 @@ class BaniObject {
       merchantKey: merchantKey ?? this.merchantKey,
       ref: ref ?? this.ref,
       email: email ?? this.email,
+      bankTransfer: bankTransfer ?? this.bankTransfer,
       firstName: firstName ?? this.firstName,
       lastName: lastName ?? this.lastName,
       metaData: metaData ?? this.metaData,
@@ -56,6 +60,7 @@ class BaniObject {
       'phoneNumber': phoneNumber,
       'merchantKey': merchantKey,
       'ref': ref,
+      "bankTransfer": bankTransfer,
       'email': email,
       'firstName': firstName,
       'lastName': lastName,
@@ -70,6 +75,7 @@ class BaniObject {
         phoneNumber: map['phoneNumber'] as String,
         merchantKey: map['merchantKey'] as String,
         ref: map['ref'] as String,
+        bankTransfer: map["bankTransfer"] as bool,
         email: map['email'] as String,
         firstName: map['firstName'] as String,
         lastName: map['lastName'] as String,
@@ -85,7 +91,7 @@ class BaniObject {
 
   @override
   String toString() {
-    return 'BaniObject(text: $text, amount: $amount, phoneNumber: $phoneNumber, merchantKey: $merchantKey, ref: $ref, email: $email, firstName: $firstName, lastName: $lastName, metadata: $metaData)';
+    return 'BaniObject(text: $text, amount: $amount, bankTransfer: $bankTransfer, phoneNumber: $phoneNumber, merchantKey: $merchantKey, ref: $ref, email: $email, firstName: $firstName, lastName: $lastName, metadata: $metaData)';
   }
 
   @override
@@ -98,6 +104,7 @@ class BaniObject {
         other.merchantKey == merchantKey &&
         other.ref == ref &&
         other.email == email &&
+        other.bankTransfer == bankTransfer &&
         other.firstName == firstName &&
         other.lastName == lastName &&
         mapEquals(other.metaData, metaData);
@@ -108,6 +115,7 @@ class BaniObject {
     return text.hashCode ^
         amount.hashCode ^
         phoneNumber.hashCode ^
+        bankTransfer.hashCode ^
         merchantKey.hashCode ^
         ref.hashCode ^
         email.hashCode ^
