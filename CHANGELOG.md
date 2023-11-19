@@ -1,4 +1,4 @@
-## 0.04
+## 0.0.4
 - Added bankTransfer boolean to Bani Object.
 - Added payInBaniShopper functionality. Check README for more details.
 
