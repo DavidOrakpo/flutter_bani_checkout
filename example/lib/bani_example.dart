@@ -40,7 +40,7 @@ class _WebViewTestPageState extends State<WebViewTestPage> {
                     text: "Pay with Bani",
                     amount: "200",
                     phoneNumber: "+2347037142576",
-                    merchantKey: "pub_test_H9BH5C31T65T5QFAG2MSX",
+                    merchantKey: "pub_test_953FNAXHV0ZMR7T86MAAK",
                     ref: "ref-${Random.secure().nextInt(900000) + 100000}",
                     email: "testemail@gmail.com",
                     firstName: "Test",

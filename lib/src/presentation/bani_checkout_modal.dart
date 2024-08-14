@@ -25,8 +25,8 @@ class BaniShopper {
         final size = MediaQuery.sizeOf(context);
         return Consumer(
           builder: (context, ref, child) {
-            final provider = ref.watch(baniCheckoutVM);
-            provider.isModal = true;
+            // final provider = ref.watch(baniCheckoutVM);
+            // provider.isModal = true;
             return SizedBox(
               height: size.height * 0.95,
               child: BaniShopperCheckout(

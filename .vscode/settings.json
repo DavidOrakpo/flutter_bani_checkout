@@ -29,7 +29,7 @@
       "titleBar.inactiveForeground": "#e7e7e799"
     },
     "editor.codeActionsOnSave": {
-      "source.fixAll": true
-  },
+      "source.fixAll": "explicit"
+    },
     "peacock.color": "#0c274c"
   }

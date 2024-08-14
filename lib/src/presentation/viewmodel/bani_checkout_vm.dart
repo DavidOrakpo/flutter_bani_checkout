@@ -45,8 +45,9 @@ class BaniCheckoutViewModel with ChangeNotifier {
             isLoading.notifyListeners();
           },
           onPageFinished: (String url) async {
-            // isLoading.value = false;
             await injectPeerStack();
+            isLoading.value = false;
+            isLoading.notifyListeners();
           },
           onWebResourceError: (WebResourceError error) {
             log(error.toString());
